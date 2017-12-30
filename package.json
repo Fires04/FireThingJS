@@ -1,0 +1,16 @@
+{
+    "name": "FireThing",
+    "version": "1.0.0",
+    "keywords": [
+        "util",
+        "functional",
+        "server",
+        "client",
+        "browser"
+    ],
+    "author": "David 'Fires' Stein <info@davidstein.cz at http://davidstein.cz>",
+    "contributors": [],
+    "dependencies": {
+        "mqtt": "^2.15.0"
+    }
+}
