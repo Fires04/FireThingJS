@@ -12,5 +12,7 @@
     "contributors": [],
     "dependencies": {
         "mqtt": "^2.15.0"
-    }
+    }, "scripts":{
+"start":"node main.js"}
+
 }

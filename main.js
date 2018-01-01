@@ -13,22 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+"use strict";
 
 var fireThing = require('./firething');
+var dumbThing = require('./things/dumbthing');
+var dhtThing = require('./things/dhtOnion');
+var relayThing = require('./things/relayOnion');
+
 
 var fireThingObj = new fireThing("fireplantbox", {
-    updateInterval: 3000,
+    updateInterval: 10000,
     subscribeTopic: '/firehouse/fireplantbox/commands/',
     publishTopic: '/firehouse/fireplantbox/status/',
+    publishErrorTopic: '/firehouse/fireplantbox/error/'
 });
 
+var dumbThingObj = new dumbThing('dumb1');
+fireThingObj.addIotType(dumbThingObj);
+
+var dhtObj = new dhtThing('dht1');
+fireThingObj.addIotType(dhtObj);
+
+var relayObj = new relayThing('relay');
+fireThingObj.addIotType(relayObj);
+
 fireThingObj.connect('mqtt://192.168.50.4');
-
-function mainloop() {
-
-    //LOOP
-    setTimeout(mainloop, this.updateInterval);
-}
-
-// boot up the first call
-mainloop();
