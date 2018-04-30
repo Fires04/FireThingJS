@@ -125,7 +125,7 @@ module.exports = function (id, options) {
     };
 
     this.findIot = function (id) {
-        for (let i = 0; i < this.iotTypes.length - 1; i++) {
+        for (let i = 0; i < this.iotTypes.length; i++) {
             if (this.iotTypes[i].id === id)
                 return this.iotTypes[i];
         }

@@ -16,25 +16,23 @@
 "use strict";
 
 var fireThing = require('./firething');
-var dumbThing = require('./things/dumbthing');
 var dhtThing = require('./things/dhtOnion');
-var relayThing = require('./things/relayOnion');
-
+var timedRelayThing = require('./things/timedRelayOnion');
 
 var fireThingObj = new fireThing("fireplantbox", {
-    updateInterval: 10000,
+    updateInterval: 7000,
     subscribeTopic: '/firehouse/fireplantbox/commands/',
     publishTopic: '/firehouse/fireplantbox/status/',
     publishErrorTopic: '/firehouse/fireplantbox/error/'
 });
 
-var dumbThingObj = new dumbThing('dumb1');
-fireThingObj.addIotType(dumbThingObj);
-
-var dhtObj = new dhtThing('dht1');
+var dhtObj = new dhtThing('dht1',1);
 fireThingObj.addIotType(dhtObj);
 
-var relayObj = new relayThing('relay');
+var relayObj = new timedRelayThing('relay',19);
 fireThingObj.addIotType(relayObj);
+
+var fanObj = new timedRelayThing('fan',26);
+fireThingObj.addIotType(fanObj);
 
 fireThingObj.connect('mqtt://192.168.50.4');
