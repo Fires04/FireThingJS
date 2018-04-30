@@ -17,6 +17,8 @@
 
 var fireThing = require('./firething');
 var dhtThing = require('./things/dhtOnion');
+var relayThing = require('./things/relayOnion');
+var fireWeatherStation = require('./things/fireWeatherStation');
 var timedRelayThing = require('./things/timedRelayOnion');
 
 var fireThingObj = new fireThing("fireplantbox", {
@@ -26,13 +28,13 @@ var fireThingObj = new fireThing("fireplantbox", {
     publishErrorTopic: '/firehouse/fireplantbox/error/'
 });
 
-var dhtObj = new dhtThing('dht1',1);
-fireThingObj.addIotType(dhtObj);
+var dumbThingObj = new dumbThing('dumb1');
+fireThingObj.addIotType(dumbThingObj);
 
-var relayObj = new timedRelayThing('relay',19);
-fireThingObj.addIotType(relayObj);
+//var dhtObj = new dhtThing('dht1');
+//fireThingObj.addIotType(dhtObj);
+//
+//var relayObj = new relayThing('relay');
+//fireThingObj.addIotType(relayObj);
 
-var fanObj = new timedRelayThing('fan',26);
-fireThingObj.addIotType(fanObj);
-
-fireThingObj.connect('mqtt://192.168.50.4');
+fireThingObj.connect('mqtt://192.168.50.246');
