@@ -11,8 +11,10 @@
     "author": "David 'Fires' Stein <info@davidstein.cz at http://davidstein.cz>",
     "contributors": [],
     "dependencies": {
-        "mqtt": "^2.15.0"
-    }, "scripts":{
-"start":"node main.js"}
-
+        "mqtt": "^2.15.0",
+        "serialport": "^6.2.0"
+    },
+    "scripts": {
+        "start": "node main.js"
+    }
 }

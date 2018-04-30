@@ -19,6 +19,7 @@ var fireThing = require('./firething');
 var dumbThing = require('./things/dumbthing');
 var dhtThing = require('./things/dhtOnion');
 var relayThing = require('./things/relayOnion');
+var fireWeatherStation = require('./things/fireWeatherStation');
 
 
 var fireThingObj = new fireThing("fireplantbox", {
@@ -31,10 +32,10 @@ var fireThingObj = new fireThing("fireplantbox", {
 var dumbThingObj = new dumbThing('dumb1');
 fireThingObj.addIotType(dumbThingObj);
 
-var dhtObj = new dhtThing('dht1');
-fireThingObj.addIotType(dhtObj);
+//var dhtObj = new dhtThing('dht1');
+//fireThingObj.addIotType(dhtObj);
+//
+//var relayObj = new relayThing('relay');
+//fireThingObj.addIotType(relayObj);
 
-var relayObj = new relayThing('relay');
-fireThingObj.addIotType(relayObj);
-
-fireThingObj.connect('mqtt://192.168.50.4');
+fireThingObj.connect('mqtt://192.168.50.246');
